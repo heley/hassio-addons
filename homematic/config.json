@@ -55,6 +55,7 @@
         "type": "match(CCU2)",
         "device": "match(^/dev/.*$)",
         "reset": "bool?"
+        "update": "bool?"
       }
     ],
     "wired_enable": "bool",

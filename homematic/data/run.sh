@@ -61,7 +61,11 @@ if bashio::config.true 'rf_enable'; then
     done
 
     # Update Firmware
-    firmware_update_rfd
+	if bashio::config.true 'rf[${rf_device}].update'; then
+		firmware_update_rfd
+	else
+        bashio::log.info "RFd update is disabled"
+    fi
 
     # Run RFD
     "$HM_HOME/bin/rfd" -c -l 0 -f /opt/hm/etc/config/rfd.conf &
